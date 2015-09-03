@@ -121,6 +121,11 @@ class Dispatcher
 
         return $this->service->messages->send($message->toArray(), $async, $ipPool, $sendAt);
     }
+    
+    public function unsubscribe($email, $comment = '')
+    {
+        return $this->service->rejects->add($email, $comment);
+    }
 
     /**
      * Get Mandrill service
